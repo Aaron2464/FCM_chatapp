@@ -17,7 +17,9 @@ public class ChatMessage {
 
         messageTime = new Date().getTime();
     }
-
+    public ChatMessage() {
+    }
+    
     public String getMessageText() {
         return messageText;
     }
@@ -42,7 +44,5 @@ public class ChatMessage {
         this.messageTime = messageTime;
     }
 
-    public ChatMessage() {
 
-    }
 }
