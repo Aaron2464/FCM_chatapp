@@ -79,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText input = (EditText)findViewById(R.id.input);
-                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),
-                        FirebaseAuth.getInstance().getCurrentUser().getEmail()));
+                FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
             }
         });
@@ -93,8 +92,9 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             Snackbar.make(activity_main,"Welcome"+FirebaseAuth.getInstance().getCurrentUser().getEmail(),Snackbar.LENGTH_SHORT).show();
+            displayChatMessage();
         }
-        displayChatMessage();
+
     }
 
     private void displayChatMessage() {
@@ -105,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
             protected void populateView(View v, ChatMessage model, int position) {
                 // Get reference to the  views of list_item.xml
                 TextView messageText,messageUser,messageTime;
-                messageText = (TextView) findViewById(R.id.message_text);
-                messageUser = (TextView) findViewById(R.id.message_user);
-                messageTime = (TextView) findViewById(R.id.message_time);
+                messageText = (TextView) v.findViewById(R.id.message_text);
+                messageUser = (TextView) v.findViewById(R.id.message_user);
+                messageTime = (TextView) v.findViewById(R.id.message_time);
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
