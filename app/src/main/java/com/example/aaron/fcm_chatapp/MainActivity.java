@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == SIGN_IN_REQUEST_CODE)
         {
-            if(requestCode == RESULT_OK)
+            if(resultCode == RESULT_OK)
             {
                 Snackbar.make(activity_main,"Successfully signed in. Welcome!", Snackbar.LENGTH_SHORT).show();
                 displayChatMessage();
