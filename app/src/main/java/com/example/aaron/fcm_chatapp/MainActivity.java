@@ -111,8 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
-                messageTime.setText(android.text.format.DateFormat.format("dd-MM-YYYY (HH:mm:ss)",model.getMessageTime()));
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",model.getMessageTime()));
             }
         };
+        listofMessage.setAdapter(adapter);
     }
 }
